@@ -1,0 +1,112 @@
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        HiLow hilow = new HiLow();
+
+        boolean done = false;
+
+        Scanner scan = new Scanner(System.in);
+//scanner for whole program
+        System.out.println("You must choose your range of possible number to choose from.");
+
+        while (!done) {
+
+            System.out.println("Please choose the minimum.");
+//requests user min
+            if (scan.hasNextInt()) {
+            //conditional check
+                hilow.setMin(scan.nextInt());
+                done = true;
+            }
+            else {
+
+                System.out.println("Error: Not an integer value");
+
+            }
+        }
+
+        done = false;
+
+        while (!done) {
+
+            System.out.println();
+            System.out.println("Please choose the maximum.");
+//requests user max
+            if (scan.hasNextInt()) {
+            //conditional check
+                hilow.setMax(scan.nextInt());
+
+                if (hilow.getMax() != 1000000001) {
+                    done = true;
+                }
+                else {
+                    System.out.println("Error: Not an integer value or max is less than min.");
+                }
+            }
+            else {
+
+                System.out.println("Error: Not an integer value or max is less than min.");
+            }
+
+        }
+
+        done = false;
+
+        Random rand = new Random();
+        int random = rand.nextInt(hilow.getMax()) + hilow.getMin();
+        int Number = random;
+//set the random number
+        int Guess = 0;
+
+        while (!done) {
+
+            boolean done2 = false;
+
+            while (!done2) {
+
+                System.out.println();
+                System.out.println("Guess my number!");
+//requests user guess
+                if (scan.hasNextInt()) {
+                    Guess = scan.nextInt();
+//taking guess
+                    done2 = true;
+                }
+                else {
+                    System.out.println("I'm sorry, that's not a valid number.");
+                }
+            }
+
+            if (Guess == Number) {
+                done = true;
+//ends loop
+            }
+            if (Guess > Number) {
+                System.out.println();
+                System.out.println();
+                System.out.println("Nope. My number is LOWER.");
+            }
+            if (Guess < Number) {
+                System.out.println();
+                System.out.println();
+                System.out.println("Nope. My number is HIGHER.");
+            }
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("That's right! My number is " + Number + ". You win!");
+        System.out.println("Please play again!");
+//end of code
+
+
+
+
+    }//DONT TOUCH
+}//DONT TOUCH
