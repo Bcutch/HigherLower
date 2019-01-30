@@ -1,0 +1,30 @@
+package com.company;
+
+/**
+ * Created by 04585cut on 20/09/2018.
+ */
+public class HiLow {
+    private int Min = 0;
+    private int Max = 0;
+
+    public void setMin(int usermin){
+        Min = usermin;
+    }
+
+    public int getMin() {
+        return Min;
+    }
+
+    public void setMax(int userMax) {
+        if (userMax > Min) {
+            Max = userMax;
+        }
+        else {
+            Max = -1000000001;
+        }
+    }
+
+    public int getMax() {
+        return Max;
+    }
+}
